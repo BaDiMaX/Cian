@@ -119,8 +119,6 @@ public class CianSearch {
         this.valueFrom = list.get(4);
         this.valueTo = list.get(5);
         this.adress = list.get(6);
-
-
     }
     //тесты
     public void firstFiltrTest(String operation, String object, List<String> roomDeselect, List<String> roomsSelect, String bedrooms, String valueFrom, String valueTo, String adress) throws InterruptedException {
