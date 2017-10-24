@@ -165,6 +165,7 @@ public class CianSearch {
         pushButtonFind();
 
     }
+
     public void getInfoOfResults(int numResult) throws InterruptedException {
         Thread.sleep(2000);
         chooseResult(numResult);
