@@ -122,15 +122,15 @@ public class CianSearch {
     }
     //тесты
     public void firstFiltrTest(String operation, String object, List<String> roomDeselect, List<String> roomsSelect, String bedrooms, String valueFrom, String valueTo, String adress) throws InterruptedException {
-        if(object != "empty") {
+        if(!operation.equals("empty")) {
             selectOperation();
             chooseOperation(operation);
         }
-        if(object != "empty") {
+        if(!object.equals("empty")) {
             selectObject();
             chooseObject(object);
         }
-        if(roomsSelect.get(0).contains("empty")){
+        if(roomsSelect.get(0).equals("empty")){
             roomsSelect.clear();
         }
         if(!roomsSelect.isEmpty()) {
@@ -142,23 +142,23 @@ public class CianSearch {
             selectNumberRooms();
             roomsDeselect.clear();
         }
-        if(valueFrom != "empty") {
+        if(!valueFrom.equals("empty")) {
             setValueFrom(valueFrom);
         }else{
             clearFilterInput("от");
         }
-        if(valueTo != "empty") {
+        if(!valueTo.equals("empty")) {
             setValueTo(valueTo);
         }else{
             clearFilterInput("до");
         }
-        if(adress !="empty") {
+        if(!adress.equals("empty")) {
             setAddress(adress);
         }
-        if(bedrooms !="empty" && operation.contains("Посуточно")){
+        if(!bedrooms.equals("empty") && operation.equals("Посуточно")){
             selectBedrooms();
             chooseBebrooms(bedrooms);
-        }else if(object.contains("Дом")&& operation.contains("Посуточно")){
+        }else if(object.equals("Дом")&& operation.equals("Посуточно")){
             selectBedrooms();
             chooseBebrooms("Не важно");
         }
@@ -197,7 +197,7 @@ public class CianSearch {
             clickButtonOfferType();
             chooseNewOfferType(object);
         }
-        if(roomsSelect.get(0).contains("empty")){
+        if(roomsSelect.get(0).equals("empty")){
             roomsSelect.clear();
         }
         if(!roomsSelect.isEmpty()) {
@@ -212,24 +212,24 @@ public class CianSearch {
             clickButtonRooms();
             roomsDeselect.clear();
         }
-        if(bedrooms !="empty" && operation.contains("Посуточно")){
+        if(!bedrooms.equals("empty") && operation.equals("Посуточно")){
             clickButtonBedrooms();
             chooseBebrooms(bedrooms);
-        }else if(object.contains("Дом")&& operation.contains("Посуточно")){
+        }else if(object.equals("Дом")&& operation.equals("Посуточно")){
             clickButtonBedrooms();
             chooseBebrooms("Не важно");
         }
-        if(valueFrom !="empty") {
+        if(!valueFrom.equals("empty")) {
             setValueFrom(valueFrom);
         }else{
             clearFilterInput("от");
         }
-        if(valueTo !="empty") {
+        if(!valueTo.equals("empty")) {
             setValueTo(valueTo);
         }else{
             clearFilterInput("до");
         }
-        if(adress != "empty") {
+        if(!adress.equals("empty")) {
             setNewAddress(adress);
         }
         clickButtonSearch();
