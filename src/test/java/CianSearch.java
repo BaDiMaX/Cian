@@ -47,13 +47,13 @@ public class CianSearch {
     @Test
     public void searchInCian() throws Exception {
 
-            filters.getFiltersData("list1.xls");
+            filters.getFiltersData("data.xls");
             setValues(filters.getFiltersArray().get(0));
             seeArray(filters.getFiltersArray().get(0));
             firstFiltrTest(dealType, offerType, roomsDeselect, rooms, bedRooms, valueFrom, valueTo, adress);
             seeResults(2, "filtr1");
             if(filters.getFiltersArray().size() > 1) {
-                for (int i = 1; i < filters.getFiltersArray().size()-1; i++) {
+                for (int i = 1; i < filters.getFiltersArray().size(); i++) {
                    setValues(filters.getFiltersArray().get(i));
                    seeArray(filters.getFiltersArray().get(i));
                    Thread.sleep(1000);
@@ -342,7 +342,7 @@ public class CianSearch {
         List<WebElement> listph = driver.findElements(By.xpath("//div[@class='fotorama__nav-wrap']/div/div/div/div"));
         builder.moveToElement(listph.get(0)).build().perform();
         if(listph.size()> 1) {
-            for (int i = 0; i < listph.size(); i++) {
+            for (int i = 0; i < listph.size()-1; i++) {
                 Thread.sleep(1000);
                 while (true) {
                     try{
