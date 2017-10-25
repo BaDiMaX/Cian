@@ -189,11 +189,11 @@ public class CianSearch {
     }
     public void othwerFiltrs(String operation, String object, List<String> roomDeselect, List<String> roomsSelect, String bedrooms, String valueFrom, String valueTo, String adress) throws InterruptedException {
         //goToUp();
-        if(operation !="empty") {
+        if(!operation.equals("empty")) {
             clickButtonDealType();
             chooseOperation(operation);
         }
-        if(object !="empty") {
+        if(!object.equals("empty")) {
             clickButtonOfferType();
             chooseNewOfferType(object);
         }
