@@ -57,7 +57,7 @@ public class CianSearch {
                    setValues(filters.getFiltersArray().get(i));
                    seeArray(filters.getFiltersArray().get(i));
                    Thread.sleep(1000);
-                   othwerFiltrs(dealType, offerType, roomsDeselect, rooms, bedRooms, valueFrom, valueTo, adress);
+                   otherFiltrs(dealType, offerType, roomsDeselect, rooms, bedRooms, valueFrom, valueTo, adress);
                    seeResults(1, "filtr"+(i+1));
                 }
            }
@@ -187,7 +187,7 @@ public class CianSearch {
         closeSwitchWindow();
         closeWindow();
     }
-    public void othwerFiltrs(String operation, String object, List<String> roomDeselect, List<String> roomsSelect, String bedrooms, String valueFrom, String valueTo, String adress) throws InterruptedException {
+    public void otherFiltrs(String operation, String object, List<String> roomDeselect, List<String> roomsSelect, String bedrooms, String valueFrom, String valueTo, String adress) throws InterruptedException {
         //goToUp();
         if(!operation.equals("empty")) {
             clickButtonDealType();
