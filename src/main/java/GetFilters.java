@@ -37,14 +37,11 @@ public class GetFilters {
             Row row = it.next();
             if(row.getRowNum() > 0) {
                 filter = new ArrayList<String>();
-                for (int i = 0; i < 7; i++) {
+                for (int i = 1; i < 8; i++) {
                     Cell cell = row.getCell(i);
-                    CellType cellType = cell.getCellTypeEnum();
-                    if (cellType == CellType.NUMERIC) {
-                        filter.add("" + cell.getNumericCellValue());
-                    } else if (cellType == CellType.STRING) {
-                        filter.add(cell.getStringCellValue());
-                    } else {
+                    if(cell != null && !(cell.getCellTypeEnum()==CellType.BLANK)){
+                        filter.add(""+cell);
+                    }else{
                         filter.add("empty");
                     }
                 }
@@ -52,4 +49,5 @@ public class GetFilters {
             }
         }
     }
+
 }

@@ -30,13 +30,14 @@ public class CianSearch {
     private String valueFrom;
     private String valueTo;
     private  String adress;
+    private int timeToWait = 30;
 
 
     @Before
     public void start(){
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        timeToWaitElement(timeToWait);
         builder = new Actions(driver);
         roomsDeselect = new ArrayList<String>();
         filtersList = new ArrayList<String>();
@@ -170,6 +171,7 @@ public class CianSearch {
         Thread.sleep(2000);
         chooseResult(numResult);
         switchToNewWindow(1);
+        closePop();
         seePhotos();
         showTelephone();
 //        System.out.println(getUrl());
@@ -380,7 +382,7 @@ public class CianSearch {
     }
     public void findFilterInput(String input, String string) throws InterruptedException {
         WebElement inp = driver.findElement(By.xpath("//input[@placeholder='" + input + "']"));
-        inp.clear();
+        inp.sendKeys(Keys.CONTROL+"a",Keys.BACK_SPACE);
         Thread.sleep(1000);
         inp.sendKeys(string);
     }
@@ -491,10 +493,7 @@ public class CianSearch {
         }
         return listdescr;
     }
-    public void goToUp(){
-        WebElement element = driver.findElement(By.xpath("//span[@class='c-header-logo']"));
-        builder.moveToElement(element).build().perform();
-    }
+
     public void closeWindow(){
         try {
             WebElement element = driver.findElement(By.xpath("//div[@class='button--3JzvW']"));
@@ -504,5 +503,18 @@ public class CianSearch {
         } catch (Exception e) {
 
         }
+    }
+    public void closePop(){
+        try{
+            WebElement element = driver.findElement(By.xpath(".//div[@class='_1yevE6IWkIWsK_iq']"));
+            if(element.isEnabled()){
+                element.click();
+            }
+        }catch (Exception e){
+
+        }
+    }
+    public void timeToWaitElement(int timeToWait){
+        driver.manage().timeouts().implicitlyWait(timeToWait, TimeUnit.SECONDS);
     }
 }
